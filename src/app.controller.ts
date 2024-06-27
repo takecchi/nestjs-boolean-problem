@@ -5,7 +5,6 @@ import {
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
-import { AppService } from './app.service';
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
 import { ApiBody, ApiConsumes, ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsOptional } from 'class-validator';
@@ -33,13 +32,13 @@ class Something {
     required: false,
   })
   @IsOptional()
-  // Swagger定義用。コントローラーで受け取って下さい。
+  // For Swagger definition. Please receive it in the controller.
   files: undefined[];
 }
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor() {}
 
   @Post()
   @ApiConsumes('multipart/form-data')

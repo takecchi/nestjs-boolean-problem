@@ -1,20 +1,24 @@
 # nestjs-boolean-problem
 
-booleanが正しくパースされない問題の再現リポジトリ
+日本語の説明は[こちら](README-ja.md)
 
-## 実行手順
+This repository demonstrates the issue of boolean values not being parsed correctly.
 
-### 1. サーバーを起動
+It seems that when data is sent using `multipart/form-data`, boolean values are not parsed correctly.
+
+## Execution Steps
+
+### 1. Start the Server
 ```bash
 npm install
 npm run start:dev
 ```
 
 #### Swagger
-Swaggerが立ち上がるので、そちらで確認することも可能
+Swagger will be available, so you can also check there:
 http://localhost:3000/api
 
-### 2. curlでリクエストを送信 
+### 2. Send a Request with curl (or Swagger)
 
 ```bash
 curl -X 'POST' \
@@ -25,4 +29,4 @@ curl -X 'POST' \
   -F 'is_apple=false'
 ```
 
-### 3. 返却値がis_apple:trueになってしまう
+### 3. Issue: The return value incorrectly shows is_apple
